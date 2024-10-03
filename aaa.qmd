@@ -36,3 +36,10 @@ state_counts <- reduced_data %>%
 print(state_counts)
 ```
 
+# Merge the two tables by 'stateicp'
+combined_data <- merge(doctors, respondents, by = "stateicp", all = TRUE)
+
+# View the result
+print(combined_data)
+
+
