@@ -1,0 +1,38 @@
+---
+title: "Data analysis of educational attainment"
+subtitle: "Analyzing and simulate the number of doctor degree from all of the respondents from the data 2022"
+author: 
+  - Yuanchen Miao
+date: 03 October 2024
+date-format: long
+format: pdf
+---
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+library(tidyverse)
+library(here)
+library(dplyr)
+library(knitr)
+```
+
+```{r}
+
+#| echo: false
+#| warning: false
+#| message: false
+
+data <- read_csv(here::here("data/usa_00001.csv"))
+reduced_data <- data %>%
+  select("STATEICP", "EDUCD")
+reduced_tibble <- as.tibble(reduced_data)
+print(reduced_tibble)
+state_counts <- reduced_data %>%
+  count(STATEICP)
+
+# View the result
+print(state_counts)
+```
+
